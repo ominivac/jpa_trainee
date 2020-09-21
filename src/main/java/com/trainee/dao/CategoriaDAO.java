@@ -1,5 +1,7 @@
 package com.trainee.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import com.trainee.entidade.Categoria;
@@ -42,6 +44,20 @@ public class CategoriaDAO {
 			em.close();
 		}
 		return categoria;
+	}
+	
+	public List findAll(Integer id){
+		List<Categoria> categorias =  null;
+		EntityManager em = new ConnectionFactory().getConnection();
+		
+		try{
+			categorias =  em.createQuery("From categoria").getResultList();
+		}catch (Exception e) {
+			em.getTransaction().rollback();
+		}finally{
+			em.close();
+		}
+		return categorias;
 	}
 
 }
