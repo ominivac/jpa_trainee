@@ -32,8 +32,8 @@ public class CategoriaDAOTest {
 	public void findAll(){
 		CategoriaDAO cdao = new CategoriaDAO();
 		List<Categoria> categorias = new ArrayList<Categoria>();
-		
-		
+		categorias = cdao.findAll();
+		System.out.println(categorias);
 	}
 	public static void main(String[] args) {
 		

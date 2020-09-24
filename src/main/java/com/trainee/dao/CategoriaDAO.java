@@ -37,7 +37,10 @@ public class CategoriaDAO {
 		EntityManager em = new ConnectionFactory().getConnection();
 		
 		try{
+			
 			categoria =  em.find(Categoria.class, id);
+			
+			
 		}catch (Exception e) {
 			em.getTransaction().rollback();
 		}finally{
@@ -46,7 +49,7 @@ public class CategoriaDAO {
 		return categoria;
 	}
 	
-	public List findAll(Integer id){
+	public List findAll(){
 		List<Categoria> categorias =  null;
 		EntityManager em = new ConnectionFactory().getConnection();
 		
